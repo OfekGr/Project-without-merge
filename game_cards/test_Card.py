@@ -38,4 +38,17 @@ class TestCard(TestCase):
         Card.__init__(self, 2, 4)
         print(Card.check_sign(self))
 
+    #Check if the function gets the values correctly (different and same values)
+    def test_check_sign6(self):
+        c1=Card(2,3)
+        c2=Card(3,2)
+        c3=Card(8,1)
+        c4=Card(9,0)
+        c5=Card(12,3)
+        c6=Card(12,3)
+        self.assertNotEqual(Card.check_sign(c1), Card.check_sign(c2))
+        self.assertNotEqual(Card.check_sign(c3), Card.check_sign(c1))
+        self.assertNotEqual(Card.check_sign(c4), Card.check_sign(c5))
+        self.assertEqual(Card.check_sign(c5), Card.check_sign(c6))
+
 
