@@ -7,12 +7,25 @@ class TestPlayer(TestCase):
     def setUp(self):
         pass
 
+    #Test if the number of cards to deal per player is less than 10
+    def test_set_hand1(self):
+        Player.__init__(self, 'ofek', 9)
+        if self.NumOfCards != 26:
+            raise AssertionError("didn't give default number of cards in hand (26)")
+
+    # Test if the number of cards to deal per player is more than 26
+    def test_set_hand2(self):
+        Player.__init__(self, 'ofek', 27)
+        if self.NumOfCards != 26:
+            raise AssertionError("didn't give default number of cards in hand (26)")
+
 #Test if the player's hand is worth to the number of cards wanted per player
     def test_set_hand(self):
         Player.__init__(self, 'ofek')
         DeckOfCards.__init__(self)
         DeckOfCards.cards_shuffle(self)
-        self.playerhand = self.cards[:26]
+        cut_deck=int((len(self.cards))/2)
+        self.playerhand = self.cards[:cut_deck]
         Player.set_hand(self, self.playerhand)
         if len(self.playerhand) < self.NumOfCards:
             raise AssertionError("Player hand not maxed")
