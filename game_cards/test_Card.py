@@ -6,7 +6,7 @@ class TestCard(TestCase):
     def test_init_(self):
         Card.__init__(self, 2, 3)
 
-    # Check if card is not an integer
+    # Check if card values are not integers
     def test_check_sign(self):
         Card.__init__(self, 2, 4)
         if type(self.value) != int or type(self.suit) != int:
