@@ -19,6 +19,13 @@ class TestPlayer(TestCase):
         if self.NumOfCards != 26:
             raise AssertionError("didn't give default number of cards in hand (26)")
 
+    # Test if the number of cards to deal per player is equal to number put
+    def test_set_hand2(self):
+        Player.__init__(self, 'ofek', 25)
+        if self.NumOfCards != 25:
+            raise AssertionError("didn't give the player the wanted number of cards")
+
+
 #Test if the player's hand is worth to the number of cards wanted per player
     def test_set_hand(self):
         Player.__init__(self, 'ofek')
