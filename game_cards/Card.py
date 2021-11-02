@@ -3,8 +3,15 @@ class Card:
     '''The Card class uses 2 integer variables to create a card'''
 #each card has 2 variables, value and suit
     def __init__(self, value, suit):
-        self.value=value
-        self.suit=suit
+        self.value = value
+        self.suit = suit
+        if type(self.value) != int or type(self.suit) != int:
+            raise AssertionError("Card type is not a number")
+        if self.value < 2 or self.value > 14:
+            raise AssertionError("Value must be between 2 and 14")
+        if self.suit < 0 or self.suit > 3:
+            raise AssertionError("Suit must be between 0 and 3")
+
 
 #Comparison between cards, returns boolean
     def __gt__(self, current_card, other_card):
@@ -20,6 +27,8 @@ class Card:
 
 #Converting card values into strings (card name)
     def check_sign(self):
+        if self.value <=1:
+            raise AssertionError("Value must be between 2 and 14")
         if self.value == 2 and self.suit == 0:
             return  "Two of Diamonds"
         elif self.value == 2 and self.suit == 1:
@@ -124,3 +133,5 @@ class Card:
             return "Ace of Hearts"
         elif self.value == 14 and self.suit == 3:
             return "Ace of Clubs"
+        if self.value >= 15:
+            raise AssertionError("Value must be between 2 and 14")
