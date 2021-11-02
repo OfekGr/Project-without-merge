@@ -8,7 +8,7 @@ class TestDeckOfCards(TestCase):
     def setUp(self):
         pass
 
-#Test if it actually shuffles randomly
+# Test if it actually shuffles randomly
     def test_cards_shuffle(self):
         DeckOfCards.__init__(self)
         deck1=DeckOfCards.cards_shuffle(self)
@@ -19,7 +19,7 @@ class TestDeckOfCards(TestCase):
 
 
 
-#Test if after getting one card, it is actually removed from the deck
+# Test if after getting one card, it is actually removed from the deck
     def test_deal_one(self):
         DeckOfCards.__init__(self)
         card1=DeckOfCards.deal_one(self)

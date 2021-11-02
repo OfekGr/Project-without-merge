@@ -7,7 +7,7 @@ class TestPlayer(TestCase):
     def setUp(self):
         pass
 
-    #Test if the number of cards to deal per player is less than 10
+    # Test if the number of cards to deal per player is less than 10
     def test_set_hand1(self):
         Player.__init__(self, 'ofek', 9)
         if self.NumOfCards != 26:
@@ -26,7 +26,7 @@ class TestPlayer(TestCase):
             raise AssertionError("didn't give the player the wanted number of cards")
 
 
-#Test if the player's hand is worth to the number of cards wanted per player
+# Test if the player's hand is worth to the number of cards wanted per player
     def test_set_hand(self):
         Player.__init__(self, 'ofek')
         DeckOfCards.__init__(self)
@@ -39,7 +39,7 @@ class TestPlayer(TestCase):
         elif len(self.playerhand) > self.NumOfCards:
             raise AssertionError("Player hand already full")
 
-#Test if getting a card removes a card from the player's hand
+# Test if getting a card removes a card from the player's hand
     def test_get_card(self):
         Player.__init__(self, 'ofek')
         DeckOfCards.__init__(self)
@@ -49,7 +49,7 @@ class TestPlayer(TestCase):
         if card_got in self.playerhand:
             raise AssertionError("card not removed from playerhand")
 
-#Adding a random card to the deck (from 52 cards to 53 cards)
+# Adding a random card to the deck (from 52 cards to 53 cards)
     def test_add_card(self):
         DeckOfCards.__init__(self)
         self.playerhand = self.cards
