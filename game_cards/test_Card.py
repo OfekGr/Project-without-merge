@@ -11,7 +11,7 @@ class TestCard(TestCase):
         Card.__init__(self, 1, 2)
 
     #test for suit not in range
-    def test_init2(self):
+    def test_init3(self):
         Card.__init__(self, 4, 5)
 
     # Check if card values are not integers
